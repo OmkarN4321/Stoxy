@@ -40,19 +40,19 @@ export class Home extends Component {
           <ChartCard
             data={this.data1.reverse()}
             tickerName="Google"
-            color="bg-success"
+            color="green"
           />
 
           <ChartCard
             data={this.data2.reverse()}
             tickerName="Facebook"
-            color="bg-danger"
+            color="red"
           />
 
           <ChartCard
             data={this.data3.reverse()}
             tickerName="Microsoft"
-            color="bg-primary"
+            color="blue"
           />
           
           <style jsx global>{`
