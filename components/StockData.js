@@ -19,7 +19,7 @@ export class StockData extends Component {
             key={this.props.name}
             data={this.props.data}
             tickerName=""
-            color="red"
+            color="bg-primary"
           />
           <style jsx global>{`
             .chart {
