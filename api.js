@@ -13,9 +13,9 @@ export const technicalIndicator = async (
   return result;
 };
 
-export const timeSeries = async (symbol) => {
+export const timeSeries = async (symbol, outputsize ) => {
   const res = await fetch(
-    `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&outputsize=compact&apikey=${process.env.KEY}`
+    `https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1day&outputsize=${outputsize}&apikey=${process.env.KEY1}`
   );
   const data = await res.json();
 
