@@ -29,16 +29,16 @@ export class Stocks extends Component {
   onSubmit = async (e) => {
     e.preventDefault();
 
-    const dema9 = await technicalIndicator(this.state.search, "1day", 9, 6, "dema");
-    const dema21 = await technicalIndicator(this.state.search, "1day", 21, 6, "dema");
     const macd_val = await technicalIndicator(this.state.search, "1day", 6, 6, "macd" );
+    const dema21 = await technicalIndicator(this.state.search, "1day", 21, 6, "dema");
+    const dema9 = await technicalIndicator(this.state.search, "1day", 9, 6, "dema");      
+    const timeseries = await timeSeries(this.state.search, 50);
     const details = await overview(this.state.search);
-    const timeseries = await timeSeries(this.state.search);
-
-    const data = Object.entries(timeseries["Time Series (Daily)"]).map(value => {
+    
+    const data = timeseries.values.map(value => {
       const val = {
-        x: value[0],
-        y: Number(value[1]["4. close"])
+        x: value.datetime,
+        y: Number(value.close)
       }
       return val 
     }).reverse()

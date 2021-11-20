@@ -7,7 +7,7 @@ export class Nav extends Component {
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark shadow mb-2">
         <div className="container container-fluid">
           <Link href="/">
-            <a>STOXY</a>
+            <h2 className="text-white">STOXY</h2>
           </Link>
 
           <button
@@ -26,12 +26,7 @@ export class Nav extends Component {
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link href="/stocks">
-                  <a
-                    className="nav-link active"
-                    aria-current="page"
-                  >
-                    Stock Prediction
-                  </a>
+                  <a className="nav-link active">Stock Prediction</a>
                 </Link>
               </li>
             </ul>
