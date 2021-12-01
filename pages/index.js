@@ -43,7 +43,12 @@ export class Home extends Component {
     return (
       <div className="container">
         <div className="d-flex flex-row flex-wrap ">
-          <ChartCard data={this.data1} tickerName="Google" color="bg-success" />
+          
+          <ChartCard 
+          data={this.data1}
+          tickerName="Google"
+          color="bg-success" 
+          />
 
           <ChartCard
             data={this.data2}

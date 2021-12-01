@@ -63,7 +63,7 @@ export class Stocks extends Component {
     });
 
     this.setState({
-      advice: advicer(this.state.dema9, this.state.dema21, this.state.macd),
+      advice: advicer(this.state.dema9, this.state.dema21, this.state.macd, timeseries),
     });
 
     this.isLoading();
