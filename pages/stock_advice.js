@@ -109,7 +109,18 @@ export class Stocks extends Component {
             dema21={this.state.dema21[0].dema}
             macd={this.state.macd[0]}
           />
-        ) : null}
+        ) : (
+          <div className="d-flex justify-content-center mt-4">
+          <div className=" flex-column text-white">
+            <h4>Only use ticker symbols in search bar for eg:</h4>
+            <ul>
+              <li>"BA" for Boeing</li>
+              <li>"TSLA" for Tesla</li>
+              <li>"GOOG" for Google</li>
+            </ul>
+          </div>
+          </div>
+        )}
       </div>
     );
   }
