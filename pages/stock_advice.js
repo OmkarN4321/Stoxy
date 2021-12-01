@@ -114,9 +114,9 @@ export class Stocks extends Component {
           <div className=" flex-column text-white">
             <h4>Only use ticker symbols in search bar for eg:</h4>
             <ul>
-              <li>"BA" for Boeing</li>
-              <li>"TSLA" for Tesla</li>
-              <li>"GOOG" for Google</li>
+              <li>&quot;BA&quot; for Boeing</li>
+              <li>&quot;TSLA&quot; for Tesla</li>
+              <li>&quot;GOOG&quot; for Google</li>
             </ul>
           </div>
           </div>
