@@ -12,11 +12,18 @@ export class Stocks extends Component {
     //details: null,
     count: 0,
     advice: null,
+    loading: false,
   };
 
   onChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  };
+
+  isLoading = () => {
+    this.setState({
+      loading: !this.state.loading,
     });
   };
 
@@ -28,12 +35,13 @@ export class Stocks extends Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
+    this.isLoading();
 
     const macd_val = await technicalIndicator(this.state.search, "1day", 6, 6, "macd");
     const dema21 = await technicalIndicator(this.state.search, "1day", 21, 6, "dema");
     const dema9 = await technicalIndicator(this.state.search, "1day", 9, 6, "dema");
     const timeseries = await timeSeries(this.state.search, 50);
-    //const details = await overview(this.state.search); 
+    //const details = await overview(this.state.search);
     //The alphavantage api endpoint doesn't work for some reason
 
     const data = timeseries.values
@@ -45,7 +53,7 @@ export class Stocks extends Component {
         return val;
       })
       .reverse();
-      
+
     this.setState({
       dema9: dema9.values,
       dema21: dema21.values,
@@ -58,6 +66,7 @@ export class Stocks extends Component {
       advice: advicer(this.state.dema9, this.state.dema21, this.state.macd),
     });
 
+    this.isLoading();
     this.onToggle();
   };
 
@@ -83,6 +92,13 @@ export class Stocks extends Component {
             </button>
           </form>
         </div>
+        {this.state.loading ? (
+          <div class="d-flex justify-content-center mt-4">
+            <div class="spinner-border text-light" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        ) : null}
         {this.state.count !== 0 ? (
           <StockData
             data={this.state.data}

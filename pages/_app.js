@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       </Layout>
       <style jsx global>{`
         body {
-          background-color: #333;
+          background-color: #13191d;
         }
       `}</style>
     </>
