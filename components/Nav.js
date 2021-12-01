@@ -25,7 +25,7 @@ export class Nav extends Component {
           <div className="collapse navbar-collapse" id="navbarToggler">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link href="/stocks">
+                <Link href="/stock_advice">
                   <a className="nav-link active">Stock Prediction</a>
                 </Link>
               </li>

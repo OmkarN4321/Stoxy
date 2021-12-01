@@ -1,3 +1,10 @@
+let path;
+if(process.env.NODE_ENV === "production"){
+  path = "https://stoxy.vercel.app"
+}else{
+  path = "http://localhost:3000"
+}
+
 export const technicalIndicator = async (
   symbol,
   interval,
@@ -6,7 +13,7 @@ export const technicalIndicator = async (
   indicator
 ) => {
   const res = await fetch(
-    `https://api.twelvedata.com/${indicator}?symbol=${symbol}&interval=${interval}&time_period=${time_period}&output_size=${output_size}&apikey=${process.env.KEY1}`
+    `${path}/api/indicator?indicator=${indicator}&symbol=${symbol}&interval=${interval}&period=${time_period}&outputsize=${output_size}`
   );
   const result = await res.json();
 
@@ -15,7 +22,7 @@ export const technicalIndicator = async (
 
 export const timeSeries = async (symbol, outputsize ) => {
   const res = await fetch(
-    `https://api.twelvedata.com/time_series?symbol=${symbol}&interval=1day&outputsize=${outputsize}&apikey=${process.env.KEY1}`
+    `${path}/api/stock?stock=${symbol}&outputsize=${outputsize}`
   );
   const data = await res.json();
 
@@ -24,7 +31,7 @@ export const timeSeries = async (symbol, outputsize ) => {
 
 export const overview = async (symbol) => {
   const res = await fetch(
-    `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${symbol}&apikey=${process.env.KEY2}`
+    `${path}/api/overview?symbol=${symbol}`
   );
   const data = await res.json();
 
