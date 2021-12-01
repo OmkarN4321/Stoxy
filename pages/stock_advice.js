@@ -93,9 +93,9 @@ export class Stocks extends Component {
           </form>
         </div>
         {this.state.loading ? (
-          <div class="d-flex justify-content-center mt-4">
-            <div class="spinner-border text-light" role="status">
-              <span class="visually-hidden">Loading...</span>
+          <div className="d-flex justify-content-center mt-4">
+            <div className="spinner-border text-light" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         ) : null}
