@@ -7,6 +7,10 @@
 ##### Alphavantage API is also used for some helpful company related data but the endpoint isn't returning any data recently so the feature was removed in the latest build.
 ##### This project is severely limited because there aren't many reliable free apis for stock data and this is also the reason why it only supports the US stock market.
 
+## Known issues
+
+- The app crashes on multiple refreshes, because twelvedata API allows only 8 requests per minute on the free account. If there is another better API let me know in the repository issues.
+
 ## Commands to run
 
 #### npm run dev (Runs the dev server)
