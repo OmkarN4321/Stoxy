@@ -9,7 +9,7 @@ export class Stocks extends Component {
     dema21: [],
     macd: [],
     data: [],
-    //details: null,
+    details: null,
     count: 0,
     advice: null,
     loading: false,
@@ -34,15 +34,14 @@ export class Stocks extends Component {
   };
 
   onSubmit = async (e) => {
-    e.preventDefault();
     this.isLoading();
+    e.preventDefault();
 
     const macd_val = await technicalIndicator(this.state.search, "1day", 6, 6, "macd");
     const dema21 = await technicalIndicator(this.state.search, "1day", 21, 6, "dema");
     const dema9 = await technicalIndicator(this.state.search, "1day", 9, 6, "dema");
     const timeseries = await timeSeries(this.state.search, 50);
-    //const details = await overview(this.state.search);
-    //The alphavantage api endpoint doesn't work for some reason
+    const details = await overview(this.state.search);
 
     const data = timeseries.values
       .map((value) => {
@@ -58,7 +57,7 @@ export class Stocks extends Component {
       dema9: dema9.values,
       dema21: dema21.values,
       macd: macd_val.values,
-      //details,
+      details,
       data,
     });
 
@@ -102,7 +101,7 @@ export class Stocks extends Component {
         {this.state.count !== 0 ? (
           <StockData
             data={this.state.data}
-            //details={this.state.details}
+            details={this.state.details}
             name={this.state.count}
             advice={this.state.advice}
             dema9={this.state.dema9[0].dema}
